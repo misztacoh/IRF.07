@@ -70,6 +70,15 @@ namespace IRF._07.UserMaintenance.Entities {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sor Törlése.
+        /// </summary>
+        internal static string DeleteLine {
+            get {
+                return ResourceManager.GetString("DeleteLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Név.
         /// </summary>
         internal static string FullName {

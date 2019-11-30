@@ -21,6 +21,7 @@ namespace IRF._07.UserMaintenance
             label1.Text = Entities.Resource1.FullName;
             button1.Text = Entities.Resource1.Add;
             button2.Text = Entities.Resource1.Save;
+            button3.Text = Entities.Resource1.DeleteLine;
 
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
@@ -64,6 +65,11 @@ namespace IRF._07.UserMaintenance
                     sw.WriteLine(sb.ToString());
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            users.RemoveAt(listBox1.SelectedIndex);
         }
     }
 }
