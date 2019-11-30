@@ -20,4 +20,6 @@ namespace IRF._07.UserMaintenance.Entities
                     LastName,
                     FirstName);
             }
+        }
+    }
 }
