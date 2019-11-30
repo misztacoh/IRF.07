@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace IRF._07.UserMaintenance
             InitializeComponent();
             label1.Text = Entities.Resource1.FullName;
             button1.Text = Entities.Resource1.Add;
+            button2.Text = Entities.Resource1.Save;
 
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
@@ -39,6 +41,29 @@ namespace IRF._07.UserMaintenance
                 FullName = fullname,
             };
             users.Add(u);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Txt Files (*.txt)|*.txt|Lua Files (*.lua)|*.lua|All Files (*.*)|*.*";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Stream s = sfd.OpenFile();
+                using (StreamWriter sw = new StreamWriter(s))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var user in users)
+                    {
+                        sb.Append(user.ID);
+                        sb.Append(";");
+                        sb.Append(user.FullName);
+                        sb.Append(Environment.NewLine);                        
+                    }
+                    sw.WriteLine(sb.ToString());
+                }
+            }
         }
     }
 }
