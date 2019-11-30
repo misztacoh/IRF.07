@@ -17,8 +17,7 @@ namespace IRF._07.UserMaintenance
         public Form1()
         {
             InitializeComponent();
-            label1.Text = Entities.Resource1.LastName;
-            label2.Text = Entities.Resource1.FirstName;
+            label1.Text = Entities.Resource1.FullName;
             button1.Text = Entities.Resource1.Add;
 
             listBox1.DataSource = users;
@@ -34,10 +33,10 @@ namespace IRF._07.UserMaintenance
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string fullname = textBox1.Text;
             var u = new Entities.User()
             {
-                LastName = textBox1.Text,
-                FirstName = textBox2.Text
+                FullName = fullname,
             };
             users.Add(u);
         }
