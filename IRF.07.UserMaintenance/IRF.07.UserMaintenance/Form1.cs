@@ -15,6 +15,14 @@ namespace IRF._07.UserMaintenance
         public Form1()
         {
             InitializeComponent();
+            label1.Text = Entities.Resource1.LastName;
+            label2.Text = Entities.Resource1.FirstName;
+            button1.Text = Entities.Resource1.Add;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
